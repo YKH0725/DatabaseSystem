@@ -1,0 +1,16 @@
+
+<!DOCTYPE html>
+<html>
+<head><title>添加患者</title></head>
+<body>
+<h2>添加新患者</h2>
+<form method="post">
+    ID: <input name="patient_id"><br>
+    姓名: <input name="name"><br>
+    性别: <input name="gender"><br>
+    电话: <input name="phone"><br>
+    <input type="submit" value="提交">
+</form>
+<a href="/">返回首页</a>
+</body>
+</html>
