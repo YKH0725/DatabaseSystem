@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head><title>就诊记录</title></head>
+<body>
+<h2>就诊记录信息</h2>
+<table border="1">
+    <tr><th>记录ID</th><th>日期</th><th>患者ID</th><th>患者姓名</th><th>医生</th><th>症状</th><th>诊断</th><th>操作</th></tr>
+    {% for r in records %}
+    <tr>
+        <td>{{ r.record_id }}</td>
+        <td>{{ r.visit_date }}</td>
+       <td>{{ r.patient_id }}</td>
+      <td>{{ r.patient_name }}</td>
+      <td>{{ r.doctor_id }}</td>
+        <td>{{ r.symptoms }}</td>
+        <td>{{ r.diagnosis }}</td>
+        <td>
+        <a href="/prescription/{{ r.record_id }}">查看处方</a>
+      </td>
+    </tr>
+    {% endfor %}
+</table>
+<a href="/">返回首页</a>
+</body>
+</html>

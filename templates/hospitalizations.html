@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head><title>住院管理</title></head>
+<body>
+  <h2>住院记录信息</h2>
+  <table border="1">
+    <tr>
+      <th>住院ID</th>
+      <th>入院日期</th>
+      <th>出院日期</th>
+      <th>诊断</th>
+      <th>患者姓名</th>
+      <th>病房号</th>
+      <th>主治医生</th>
+    </tr>
+    {% for h in hospitalizations %}
+    <tr>
+      <td>{{ h.hospitalization_id }}</td>
+      <td>{{ h.admission_date }}</td>
+      <td>{{ h.discharge_date if h.discharge_date else '住院中' }}</td>
+      <td>{{ h.diagnosis }}</td>
+      <td>{{ h.patient_id }}</td>
+      <td>{{ h.ward_id }}</td>
+      <td>{{ h.attending_doctor_id }}</td>
+    </tr>
+    {% else %}
+    <tr><td colspan="7">暂无住院记录</td></tr>
+    {% endfor %}
+  </table>
+  <a href="/">返回首页</a>
+</body>
+</html>

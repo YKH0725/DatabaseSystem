@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head><title>医生管理</title></head>
+<body>
+<h2>医生列表</h2>
+<table border="1">
+    <tr><th>ID</th><th>姓名</th><th>职称</th><th>科室ID</th></tr>
+    {% for d in doctors %}
+    <tr>
+        <td>{{ d.doctor_id }}</td>
+        <td>{{ d.name }}</td>
+        <td>{{ d.title }}</td>
+        <td>{{ d.dept_id }}</td>
+    </tr>
+    {% endfor %}
+</table>
+<a href="/">返回首页</a>
+</body>
+</html>

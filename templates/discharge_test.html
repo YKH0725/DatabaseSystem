@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>存储过程测试</title>
+    <style>
+        .test-case { margin: 10px; padding: 10px; border: 1px solid #ccc; }
+        .error { color: red; }
+        .success { color: green; }
+    </style>
+</head>
+<body>
+    <h1>出院存储过程测试</h1>
+    
+    <h2>测试用例</h2>
+    <form method="post">
+        <div class="test-case">
+            <h3>故意触发错误</h3>
+            <label>住院ID: <input type="text" name="hosp_id" value="{{ last_hosp_id or 'H999' }}"></label><br>
+            <label>出院日期: <input type="date" name="discharge_date" value="{{ last_date or '2000-01-01' }}"></label><br>
+            <input type="submit" value="测试出院操作">
+        </div>
+    </form>
+    
+    {% if result %}
+        <div class="{% if '失败' in result %}error{% else %}success{% endif %}">
+            <h3>测试结果:</h3>
+            <p>{{ result }}</p>
+        </div>
+    {% endif %}
+    
+    <h2>预设测试用例</h2>
+    <div class="test-cases">
+        {% for case in test_cases %}
+        <div class="test-case">
+            <h3>{{ case.desc }}</h3>
+            <form method="post">
+                <input type="hidden" name="hosp_id" value="{{ case.hosp_id }}">
+                <input type="hidden" name="discharge_date" value="{{ case.date }}">
+                <p>住院ID: {{ case.hosp_id }}</p>
+                <p>出院日期: {{ case.date }}</p>
+                <input type="submit" value="执行此测试">
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+    
+    <a href="/">返回首页</a>
+</body>
+</html>
