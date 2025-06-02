@@ -1,0 +1,11 @@
+
+import pymysql
+
+conn = pymysql.connect(
+    host='localhost',
+    user='root',
+    password='YKHykh0725',
+    database='hospital_system',
+    port=3306
+)
+cursor = conn.cursor()
